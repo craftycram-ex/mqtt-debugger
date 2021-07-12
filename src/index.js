@@ -2,6 +2,7 @@ const mqtt = require('mqtt');
 
 console.log('mqtt debugger - v1.0.0 - @itmr-dev');
 if (!process.env.MQTT_SERVER) return console.error('please define MQTT_SERVER env var')
+console.log(`starting mqtt debugger with host ${process.env.MQTT_SERVER}`);
 const mqttclient  = mqtt.connect(process.env.MQTT_SERVER)
 mqttclient.on('connect', (d) => console.log('connect', d));
 mqttclient.on('close', (d) => console.log('close', d));
